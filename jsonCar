@@ -1,0 +1,26 @@
+# Project: W2 Solo Lab Python3 and JSON Car Object
+# Purpose Details: Create a python car object
+# Course: IST 411 Section 001
+# Author: Teresa Barker
+# Date Developed: September 4, 2019
+# Last Date Changed: September 8, 2019
+# Rev: 1
+
+import json
+
+class Car:
+    def __init__(car, brand, model, make, year, color):
+        car.brand = brand
+        car.model = model
+        car.make = make
+        car.year = year
+        car.color = color
+
+myCar = Car('Ford', 'Focus', 'sedan', 2016, 'blue')
+
+with open('jsonCar.json', 'w') as outFile:
+         jsonObjCar = outFile.write(json.dumps(myCar.__dict__))  
+
+with open('jsonCar.json', 'r') as json_data:         
+        pyObjCar = json.load(json_data) 
+        print(repr(pyObjCar))
